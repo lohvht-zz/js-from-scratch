@@ -11,5 +11,11 @@ Flow - static type checker by Facebook, detects inconsistent types in code
 	flow-bin - to run flow in scripts
 	babel-preset-flow - preset for Babel to understand Flow
 	eslint-plugin-flowtype - ESLint plugin to lint Flow annotations
+Husky: Git hooks, runs test on precommit and push
+    if pushing right after commit, can type "git push --no-verify"
 
 
+
+Flow suppress comment ==> //flow-disable-next-line
+Add flow annotation ==> // @flow
+ESLint allow comments ==> /* eslint-disable no-console */

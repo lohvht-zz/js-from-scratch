@@ -12,5 +12,8 @@
     "no-unexpected-multiline": 2,
     "compat/compat": 2
   },
-  "parser": "babel-eslint"
+  "parser": "babel-eslint",
+  "env": {
+    "jest": true
+  }
 }
