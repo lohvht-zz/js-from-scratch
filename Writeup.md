@@ -22,7 +22,8 @@ Nodemon - Used on dev mode, automatically restarts node server when file changes
 PM2 - Used in Production! Process manager for node, keeps process alive in production, features to manage and monitor
 rimraf - Used for production! package to delete files, cross platform support
 cross-env - cross-environment syntax to make passing in variables the same from Windows and *nix systems
-
+Webpack - module bundler, processes all the files and assembles them into a bundle.js to send to client to run
+    Has a webpack dev server!
 
 
 # Tests
