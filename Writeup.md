@@ -24,7 +24,14 @@ rimraf - Used for production! package to delete files, cross platform support
 cross-env - cross-environment syntax to make passing in variables the same from Windows and *nix systems
 Webpack - module bundler, processes all the files and assembles them into a bundle.js to send to client to run
     Has a webpack dev server!
+React/ReactDOM
+Hot Module Replacement (using react-hot-loader@next)
+Redux/Redux-actions: Redux helps to keep predictable container state for javascript apps, redux-actions is used to reduce boilerplate code for redux actions
 
+
+React/ReactDOM
+
+Hot Module Replacement (using react-hot-loader@next)
 
 # Tests
 To write a test file, save the files as <fileName>.test.js

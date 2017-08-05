@@ -3,16 +3,16 @@
   "version": "1.0.0",
   "license": "MIT",
   "scripts": {
-  "start": "yarn dev:start",
-  "dev:start": "nodemon -e js,jsx --ignore lib --ignore dist --exec babel-node src/server",
-  "dev:wds": "webpack-dev-server --progress",
-  "prod:build": "rimraf lib dist && babel src -d lib --ignore .test.js && cross-env NODE_ENV=production webpack -p --progress",
-  "prod:start": "cross-env NODE_ENV=production pm2 start lib/server && pm2 logs",
-  "prod:stop": "pm2 delete server",
-  "lint": "eslint src webpack.config.babel.js --ext .js,.jsx",
-  "test": "yarn lint && flow && jest --coverage",
-  "precommit": "yarn test",
-  "prepush": "yarn test && yarn prod:build"
+    "start": "yarn dev:start",
+    "dev:start": "nodemon -e js,jsx --ignore lib --ignore dist --exec babel-node src/server",
+    "dev:wds": "webpack-dev-server --progress",
+    "prod:build": "rimraf lib dist && babel src -d lib --ignore .test.js && cross-env NODE_ENV=production webpack -p --progress",
+    "prod:start": "cross-env NODE_ENV=production pm2 start lib/server && pm2 logs",
+    "prod:stop": "pm2 delete server",
+    "lint": "eslint src webpack.config.babel.js --ext .js,.jsx",
+    "test": "yarn lint && flow && jest --coverage",
+    "precommit": "yarn test",
+    "prepush": "yarn test && yarn prod:build"
   },
   "devDependencies": {
     "babel-cli": "^6.24.1",
@@ -20,8 +20,10 @@
     "babel-eslint": "^7.2.3",
     "babel-jest": "^20.0.3",
     "babel-loader": "^7.1.1",
+    "babel-plugin-flow-react-proptypes": "^3.4.3",
     "babel-preset-env": "^1.6.0",
     "babel-preset-flow": "^6.23.0",
+    "babel-preset-react": "^6.24.1",
     "cross-env": "^5.0.1",
     "eslint": "^3.19.0 || ^4.3.0",
     "eslint-config-airbnb": "^15.1.0",
@@ -45,6 +47,9 @@
   "dependencies": {
     "babel-polyfill": "^6.23.0",
     "compression": "^1.7.0",
-    "express": "^4.15.3"
+    "express": "^4.15.3",
+    "react": "^15.6.1",
+    "react-dom": "^15.6.1",
+    "react-hot-loader": "next"
   }
 }
