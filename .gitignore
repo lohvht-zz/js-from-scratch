@@ -1,6 +1,12 @@
-.DS_Store
-/*.log
+# installed node dependencies
 node_modules
+
+# generated files
 /coverage/
 /lib/
 /dist/
+/*.log
+
+# Environment specific
+.vscode
+.DS_Store
