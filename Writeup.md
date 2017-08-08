@@ -28,10 +28,10 @@ React/ReactDOM
 Hot Module Replacement (using react-hot-loader@next)
 Redux/Redux-actions: Redux helps to keep predictable container state for javascript apps, redux-actions is used to reduce boilerplate code for redux actions
 
-
-React/ReactDOM
-
-Hot Module Replacement (using react-hot-loader@next)
+redux-mock-store: a mock store to test redux async action creations/middleware, this store creates an array of dispatched actions which serve as an action log for tests
+fetch-mock: mock http requests using fetch
+React-router: library to navigate pages in react app, usable in both client and server
+React-helmet: Document head manager, fixes HTML header tags. Injects information found in several pages that has <Helmet> tags and injects those value back to <head>
 
 # Tests
 To write a test file, save the files as <fileName>.test.js
