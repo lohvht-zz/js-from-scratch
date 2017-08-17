@@ -1,0 +1,10 @@
+{
+  "javascript": {
+    "main": "http://localhost:7000/public/js/bundle.js"
+  },
+  "styles": {},
+  "assets": {},
+  "webpack": {
+    "version": "3.5.4"
+  }
+}

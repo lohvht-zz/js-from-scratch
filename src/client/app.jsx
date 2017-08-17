@@ -5,7 +5,7 @@ import React from 'react'
 import { Switch } from 'react-router'
 import { Route } from 'react-router-dom'
 
-import { APP_NAME } from './config'
+import { APP_NAME } from '../shared/config'
 import Nav from './component/nav'
 import HomePage from './component/page/home'
 import HelloPage from './component/page/hello'
@@ -15,7 +15,9 @@ import {
   HOME_PAGE_ROUTE,
   HELLO_PAGE_ROUTE,
   HELLO_ASYNC_PAGE_ROUTE,
-} from './routes'
+} from '../shared/routes'
+
+require('./app.scss')
 
 const App = () =>
   (<div>

@@ -3,7 +3,7 @@
 import { createStore, combineReducers, applyMiddleware } from 'redux'
 import thunkMiddleware from 'redux-thunk'
 
-import helloReducer from '../shared/reducer/hello'
+import helloReducer from '../client/reducer/hello'
 
 const initStore = (plainPartialState: ?Object) => {
   const preloadedState = plainPartialState ? {} : undefined
