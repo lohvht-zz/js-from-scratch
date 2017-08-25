@@ -14,6 +14,7 @@ export default {
   output: {
     filename: 'js/bundle.js',
     path: path.resolve(__dirname, 'dist'),
+    // TODO: change dev to look at public instead of dist
     publicPath: isProd ? '/static/' : `http://localhost:${WDS_PORT}/dist/`,
   },
   module: {
