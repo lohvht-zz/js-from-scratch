@@ -18,18 +18,24 @@ import renderApp from './render-app'
 
 export default (app: Object) => {
   app.get(HOME_PAGE_ROUTE, (req, res) => {
+    console.log('req.url', req.url)
     res.send(renderApp(req.url, homePage()))
   })
 
   app.get(HELLO_PAGE_ROUTE, (req, res) => {
-    res.send(renderApp(req.url, helloPage()))
+    console.log('req.url', req.url)
+    const renderedHelloPage = renderApp(req.url, helloPage())
+    res.send(renderedHelloPage)
+    console.log(renderedHelloPage)
   })
 
   app.get(HELLO_ASYNC_PAGE_ROUTE, (req, res) => {
+    console.log('req.url', req.url)
     res.send(renderApp(req.url, helloAsyncPage()))
   })
 
   app.get(helloEndpointRoute(), (req, res) => {
+    console.log('req.url', req.url)
     res.json(helloEndpoint(req.params.num))
   })
 
@@ -39,6 +45,7 @@ export default (app: Object) => {
 
   // Alternatively we can make * route back to a default page (i.e. home page)
   app.get('*', (req, res) => {
+    console.log('req.url', req.url)
     res.status(404).send(renderApp(req.url))
   })
 

@@ -6,7 +6,17 @@ import webpack from 'webpack'
 import { WDS_PORT } from './src/shared/config'
 import { isProd } from './src/shared/util'
 
+const WebpackIsomorphicToolsPlugin = require('webpack-isomorphic-tools/plugin')
+
+const webpackIsomorphicConfiguration = require('./webpack-isomorphic-tools-configuration')
+
+const webpackIsomorphicToolsPlugin = (isProd) ?
+  new WebpackIsomorphicToolsPlugin(webpackIsomorphicConfiguration) :
+  new WebpackIsomorphicToolsPlugin(webpackIsomorphicConfiguration).development()
+
+
 export default {
+  context: path.resolve(__dirname),
   entry: [
     'react-hot-loader/patch',
     './src/client',
@@ -18,6 +28,12 @@ export default {
     publicPath: isProd ? '/static/' : `http://localhost:${WDS_PORT}/dist/`,
   },
   module: {
+    loaders: [
+      {
+        test: webpackIsomorphicToolsPlugin.regularExpression('images'),
+        loader: 'url-loader?limit=10240',
+      },
+    ],
     rules: [
       { test: /\.(js|jsx)$/, use: 'babel-loader', exclude: /node_modules/ },
     ],
@@ -26,13 +42,13 @@ export default {
   resolve: {
     extensions: ['.js', '.jsx'],
   },
-  devServer: {
-    port: WDS_PORT,
-    hot: true,
-    headers: {
-      'Access-Control-Allow-Origin': '*',
-    },
-  },
+  // devServer: {
+  //   port: WDS_PORT,
+  //   hot: true,
+  //   headers: {
+  //     'Access-Control-Allow-Origin': '*',
+  //   },
+  // },
   plugins: [
     new webpack.optimize.OccurrenceOrderPlugin(),
     new webpack.HotModuleReplacementPlugin(),

@@ -10,8 +10,15 @@ import initStore from './init-store'
 import App from './../shared/app'
 import { APP_CONTAINER_CLASS, STATIC_PATH, WDS_PORT } from '../shared/config'
 import { isProd } from '../shared/util'
+import webpackIsomorphicTools from './webpackIsomorphicToolServer'
 
 const renderApp = (location: string, plainPartialState: ?Object, routerContext: ?Object = {}) => {
+  // clear require() cache if in dev mode
+  // makes asset hot-reloading work
+  if (process.env.NODE_ENV !== 'production') {
+    webpackIsomorphicTools.refresh()
+  }
+
   const store = initStore(plainPartialState)
   const appHtml = ReactDOMServer.renderToString(
     <Provider store={store}>
@@ -20,6 +27,8 @@ const renderApp = (location: string, plainPartialState: ?Object, routerContext: 
       </StaticRouter>
     </Provider>)
   const head = Helmet.rewind()
+
+  console.log('the assets are: ', webpackIsomorphicTools.assets())
 
   return (
     `<!doctype html>

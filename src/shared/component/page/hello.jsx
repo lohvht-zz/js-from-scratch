@@ -21,7 +21,7 @@ const HelloPage = () =>
     <h1>{title}</h1>
     <h1>Here is a cute image of kitten!</h1>
     <img
-      src={require(`${STATIC_PATH}/images/cute-kittens.jpg`)}
+      src={`${STATIC_PATH}/images/cute-kittens.jpg`}
       alt="Cute Kitten"
     />
     <Message />
