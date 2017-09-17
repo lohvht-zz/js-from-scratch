@@ -12,7 +12,7 @@ import { BrowserRouter } from 'react-router-dom'
 
 import App from '../shared/app'
 import helloReducer from '../shared/reducer/hello'
-import { APP_CONTAINER_SELECTOR } from '../shared/config'
+import { APP_CONTAINER_SELECTOR, JSS_SSR_SELECTOR } from '../shared/config'
 import { isProd } from '../shared/util'
 
 /* eslint-disable no-underscore-dangle */
@@ -47,3 +47,8 @@ if (module.hot) {
     ReactDOM.render(wrapApp(NextApp, store), rootEl)
   })
 }
+
+// Remove and get rid of server-generated JSS styles
+const jssServerSide = document.querySelector(JSS_SSR_SELECTOR)
+// flow-disable-next-line
+jssServerSide.parentNode.removeChild(jssServerSide)
